@@ -313,6 +313,7 @@ type ResponseBrc20History struct {
 }
 
 type ResponseBrc20TxHistory ResponseBrc20History
+type ResponseBrc20HistoryByHeight ResponseBrc20History
 
 type Brc20Balance struct {
 	Ticker              string `json:"ticker"`

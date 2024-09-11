@@ -47,6 +47,13 @@ func GetBrc20TxHistory(ctx context.Context, server, bear, ticker, tx, eventType 
 	return resp, err
 }
 
+func GetBrc20HistoryByHeight(ctx context.Context, server, bear string, height, offset, limit int64) (ResponseBrc20HistoryByHeight, error) {
+	var resp ResponseBrc20HistoryByHeight
+	url := Brc20HistoryByHeight(server, height, offset, limit)
+	err := common.GetWithBear(ctx, url, bear, &resp)
+	return resp, err
+}
+
 func GetAddressBrc20Summary(ctx context.Context, server, bear, address string, offset, limit int64) (ResponseBrc20Summary, error) {
 	var resp ResponseBrc20Summary
 	url := AddressBrc20Summary(server, address, offset, limit)

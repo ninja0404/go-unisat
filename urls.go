@@ -71,6 +71,10 @@ func Brc20TxHistory(server, ticker, tx, eventType string, offset, limit int64) s
 	return fmt.Sprintf("%s/v1/indexer/brc20/%s/tx/%s/history?type=%s&start=%d&limit=%d", server, ticker, tx, eventType, offset, limit)
 }
 
+func Brc20HistoryByHeight(server string, height, offset, limit int64) string {
+	return fmt.Sprintf("%s/v1/indexer/brc20/history-by-height/%d?start=%d&limit=%d", server, height, offset, limit)
+}
+
 func AddressBrc20Summary(server, address string, offset, limit int64) string {
 	return fmt.Sprintf("%s/v1/indexer/address/%s/brc20/summary?start=%d&limit=%d", server, address, offset, limit)
 }
