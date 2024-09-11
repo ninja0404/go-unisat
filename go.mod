@@ -1,4 +1,4 @@
-module github.com/go-unisat/go-unisat
+module github.com/ninja0404/go-unisat
 
 go 1.21.3
 

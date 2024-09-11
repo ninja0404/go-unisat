@@ -3,7 +3,7 @@
 ## 安装 Install
 
 ```go
-go get github.com/go-unisat/go-unisat
+go get github.com/ninja0404/go-unisat
 ```
 
 ## 示例

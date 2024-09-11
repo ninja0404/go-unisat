@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"github.com/go-unisat/go-unisat"
+	"github.com/ninja0404/go-unisat"
 	"log"
 	"os"
 	"time"

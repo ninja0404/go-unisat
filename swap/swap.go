@@ -2,7 +2,7 @@ package swap
 
 import (
 	"context"
-	"github.com/go-unisat/go-unisat/common"
+	"github.com/ninja0404/go-unisat/common"
 )
 
 func GetGlobalConfig(ctx context.Context, server, bear string) (ResponseGlobalConfig, error) {

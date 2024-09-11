@@ -3,10 +3,11 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"github.com/go-unisat/go-unisat"
 	"log"
 	"os"
 	"time"
+
+	"github.com/ninja0404/go-unisat"
 )
 
 func main() {

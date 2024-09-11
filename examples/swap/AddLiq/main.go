@@ -3,8 +3,8 @@ package main
 import (
 	"context"
 	"encoding/json"
-	"github.com/go-unisat/go-unisat"
-	"github.com/go-unisat/go-unisat/swap"
+	"github.com/ninja0404/go-unisat"
+	"github.com/ninja0404/go-unisat/swap"
 	"log"
 	"os"
 	"time"
