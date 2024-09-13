@@ -1,8 +1,9 @@
 package unisat
 
 import (
-	"github.com/shopspring/decimal"
 	"math/big"
+
+	"github.com/shopspring/decimal"
 )
 
 type DataBlockchainInfo struct {
@@ -277,6 +278,22 @@ type ResponseBrc20Holders struct {
 	Data DataBrc20Holders `json:"data"`
 }
 
+type Brc20Data struct {
+	Op      string `json:"op"`
+	Tick    string `json:"tick"`
+	Lim     string `json:"lim"`
+	Amt     string `json:"amt"`
+	Decimal string `json:"decimal"`
+}
+
+type Brc20Transferable struct {
+	Data              Brc20Data `json:"data"`
+	InscriptionNumber int64     `json:"inscriptionNumber"`
+	InscriptionId     string    `json:"inscriptionId"`
+	Satoshi           *big.Int  `json:"satoshi"`
+	Confirmations     int64     `json:"confirmations"`
+}
+
 type Event struct {
 	Ticker            string   `json:"ticker"`
 	Type              string   `json:"type"`
@@ -308,11 +325,25 @@ type DataBrc20History struct {
 	Detail []Event `json:"detail"`
 }
 
+type DataBrc20Transferable struct {
+	Height int64               `json:"height"`
+	Total  int64               `json:"total"`
+	Start  int64               `json:"start"`
+	Detail []Brc20Transferable `json:"detail"`
+}
+
 type ResponseBrc20History struct {
 	Code    int64  `json:"code"`
 	Message string `json:"msg"`
 
 	Data DataBrc20History `json:"data"`
+}
+
+type ResponseBrc20Transferable struct {
+	Code    int64  `json:"code"`
+	Message string `json:"msg"`
+
+	Data DataBrc20Transferable `json:"data"`
 }
 
 type ResponseBrc20TxHistory ResponseBrc20History
@@ -381,7 +412,7 @@ type ResponseAddressBrc20TickInfo struct {
 }
 
 type ResponseAddressBrc20History ResponseBrc20History
-type ResponseTransferableInscriptions ResponseBrc20History
+type ResponseTransferableInscriptions ResponseBrc20Transferable
 
 type File struct {
 	Filename string `json:"filename"`
