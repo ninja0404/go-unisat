@@ -1,6 +1,9 @@
 package unisat
 
-import "math/big"
+import (
+	"github.com/shopspring/decimal"
+	"math/big"
+)
 
 type DataBlockchainInfo struct {
 	Chain         string `json:"chain"`
@@ -379,3 +382,35 @@ type ResponseAddressBrc20TickInfo struct {
 
 type ResponseAddressBrc20History ResponseBrc20History
 type ResponseTransferableInscriptions ResponseBrc20History
+
+type File struct {
+	Filename string `json:"filename"`
+	Size     int64  `json:"size"`
+	Status   string `json:"status"`
+}
+
+type Brc20TransferData struct {
+	OrderID          string          `json:"orderId"`
+	Status           string          `json:"status"`
+	PayAddress       string          `json:"payAddress"`
+	ReceiveAddress   string          `json:"receiveAddress"`
+	Amount           int64           `json:"amount"`
+	PaidAmount       int64           `json:"paidAmount"`
+	OutputValue      int64           `json:"outputValue"`
+	FeeRate          decimal.Decimal `json:"feeRate"`
+	MinerFee         int64           `json:"minerFee"`
+	ServiceFee       int64           `json:"serviceFee"`
+	Files            []File          `json:"files"`
+	Count            int64           `json:"count"`
+	PendingCount     int64           `json:"pendingCount"`
+	UnconfirmedCount int64           `json:"unconfirmedCount"`
+	ConfirmedCount   int64           `json:"confirmedCount"`
+	CreateTime       int64           `json:"createTime"`
+	DevFee           int64           `json:"devFee"`
+}
+
+type ResponseCreateBrc20Transfer struct {
+	Code int               `json:"code"`
+	Msg  string            `json:"msg"`
+	Data Brc20TransferData `json:"data"`
+}

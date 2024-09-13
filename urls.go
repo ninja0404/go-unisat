@@ -5,6 +5,8 @@ import "fmt"
 const (
 	DefaultMainnet = "https://open-api.unisat.io"
 	DefaultTest    = "https://open-api-testnet.unisat.io"
+	FractalMainnet = "https://open-api-fractal.unisat.io"
+	FractalTest    = "https://open-api-fractal-testnet.unisat.io"
 )
 
 func BlockchainInfo(server string) string {
@@ -92,4 +94,9 @@ func AddressBrc20History(server, address, ticker, eventType string, offset, limi
 func TransferableInscriptions(server, address, ticker string, offset, limit int64) string {
 	// https://open-api.unisat.io/v1/indexer/address/{address}/brc20/{ticker}/transferable-inscriptions
 	return fmt.Sprintf("%s/v1/indexer/address/%s/brc20/%s/transferable-inscriptions?start=%d&limit=%d", server, address, ticker, offset, limit)
+}
+
+func Brc20Transfer(server string) string {
+	// https://open-api-fractal.unisat.io/v2/inscribe/order/create/brc20-transfer
+	return fmt.Sprintf("%s/v2/inscribe/order/create/brc20-transfer", server)
 }

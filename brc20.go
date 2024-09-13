@@ -81,3 +81,19 @@ func GetTransferableInscriptions(ctx context.Context, server, bear, address, tic
 	err := common.GetWithBear(ctx, url, bear, &resp)
 	return resp, err
 }
+
+func CreateBrc20Transfer(ctx context.Context, server, bear, receiveAddress string, feeRate int64, outputValue int64, brc20Ticker string, brc20Amount string, devAddress string, devFee int64) (ResponseCreateBrc20Transfer, error) {
+	var resp ResponseCreateBrc20Transfer
+	url := Brc20Transfer(server)
+	data := map[string]interface{}{
+		"receiveAddress": receiveAddress,
+		"feeRate":        feeRate,
+		"outputValue":    outputValue,
+		"devAddress":     devAddress,
+		"devFee":         devFee,
+		"brc20Ticker":    brc20Ticker,
+		"brc20Amount":    brc20Amount,
+	}
+	err := common.PostWithBear(ctx, url, bear, data, &resp)
+	return resp, err
+}
